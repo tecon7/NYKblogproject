@@ -5,6 +5,7 @@ import PlayersList from './components/PlayersList';
 import CommentList from './components/CommentList';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from './components/Login';
+import Highlights from './components/Highlights';
 
 
 function App() {
@@ -74,9 +75,17 @@ function App() {
     .then(() => navigate('/'))
   }
 
+  function handleLogout() {
+    setUser({});
+    setIsLoggedIn(false);
+    navigate('/login');
+  }
+
   return (
     <div className="app">
-      <Header userStatus={user}/>
+      <Header 
+      userStatus={user}
+      handleLogout={handleLogout}/>
       <Routes>
 
         <Route element={
@@ -97,6 +106,10 @@ function App() {
           <Login
           handleSubmit={handleLoginSubmit}
           />} path="/login"/> 
+
+        <Route element={
+          <Highlights />
+        } path="/highlights"/>
 
       </Routes>
     </div>

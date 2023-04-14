@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box
 }
@@ -77,6 +78,7 @@ h1 {
 .mb-2 {
   width: auto;
   margin: 1rem;
+  cursor: pointer;
 }
 
 .app {
@@ -226,7 +228,7 @@ h1 {
 .comment-form-button {
   margin: 1rem;
   border-radius: 5px;
-  background-color: #e83611;
+  background-color: blue;
   color: white;
   margin-left: -.03rem;
   margin-bottom: 1rem;
@@ -258,4 +260,47 @@ h1 {
 
 .article-image{
   width: 40rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root {
+  --background-color: black;
+  --text-color: hsl(0, 0%, 100%);
+}
+body {
+  margin: 0;
+}
+.title-wrapper {
+  display: grid;
+  place-content: center;
+  background-color: var(--background-color);
+  min-height: 20vh;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.5rem, 1rem + 10vw, 10rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: orange;
+  font-style: italic;
+}
+
+.title-wrapper > div {
+  grid-area: 1/1/-1/-1;
+}
+.top-title {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+
+.sub-title{
+  text-align: center;
+  font-size: medium !important;;
+}
+
+.carousel-wrapper {
+  margin-top: 56px; /* Set the margin-top to the height of the NavBar */
+  padding-top: 20px; /* Add some padding to ensure that the content doesn't overlap with the NavBar */
+  background-color: black; /* Add a background color to make it more visible */
+  padding: 20rem;
+  margin-top: -10rem;
 }

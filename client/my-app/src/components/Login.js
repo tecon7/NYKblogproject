@@ -5,6 +5,12 @@ import Card from 'react-bootstrap/Card';
 
 export default function Login({ handleSubmit }) {
     return (
+<>
+<section class="title-wrapper">
+  <div class="top-title"></div>
+  <div class="bottom-title" aria-hidden="true">New Site</div>
+  <em style={{ color: 'white',}} className="sub-title">A diehard fan's blog to vent about the last 20 years of NY Basketball</em>
+</section>
  <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
@@ -34,5 +40,6 @@ export default function Login({ handleSubmit }) {
       </div>
     </div>
   </div> 
+  </>
     )
 }

@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import {useState} from 'react';
 
 function PlayersCard({name, age, image, stats}) {
-    const [isFlipped, setIsFlipped] = useState(false);
+    const [isFlipped, setIsFlipped] = useState(true);
 
     const handleClick = () => {
         setIsFlipped(!isFlipped);
