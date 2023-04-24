@@ -113,8 +113,8 @@ h1 {
 }
 
 .back-image {
-  width: 80%;
-  height: 80%;
+  width: 68%;
+  height: 68%;
   object-fit: cover;
 }
 
@@ -256,10 +256,15 @@ h1 {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 0;
+  margin: .3rem;
 }
 
 .article-image{
   width: 40rem;
+}
+
+.article-image-2{
+  width: 30rem;
 }
 
 * {
@@ -278,7 +283,7 @@ body {
   background-color: var(--background-color);
   min-height: 20vh;
   font-family: "Oswald", sans-serif;
-  font-size: clamp(1.5rem, 1rem + 10vw, 10rem);
+  font-size: clamp(1.5rem, 1rem + 6vw, 10rem);
   font-weight: 700;
   text-transform: uppercase;
   color: orange;
@@ -302,5 +307,5 @@ body {
   padding-top: 20px; /* Add some padding to ensure that the content doesn't overlap with the NavBar */
   background-color: black; /* Add a background color to make it more visible */
   padding: 20rem;
-  margin-top: -10rem;
+  margin-top: -15rem;
 }

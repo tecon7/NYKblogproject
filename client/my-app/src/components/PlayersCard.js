@@ -7,7 +7,7 @@ function PlayersCard({name, age, image, stats}) {
     const handleClick = () => {
         setIsFlipped(!isFlipped);
       };
-
+    
     return (
         <div>
         {['Primary'].map((variant) => (
@@ -25,7 +25,9 @@ function PlayersCard({name, age, image, stats}) {
                 <h2 style={{'text-align': 'center'}}>{name}</h2>
                 <p style={{'text-align': 'center'}}>{age} yrs old</p></Card.Header>
             <Card.Body>
-              <Card.Title style={{'text-align': 'center'}}>Stats:</Card.Title>
+              <Card.Title>
+                <h2 style={{'text-align': 'center'}}>Stats:</h2>
+              </Card.Title>
               <Card.Text>
                 <h5 style={{'text-align': 'center'}}>MP: {stats.MP}</h5>
                 <h5 style={{'text-align': 'center'}}>Points: {stats.Points}</h5>
@@ -34,9 +36,10 @@ function PlayersCard({name, age, image, stats}) {
               </Card.Text>
             </Card.Body>
             </div>
-            <div className="back">
-            <img src={image} alt={name} className="back-image" />
-          </div>
+            <div className="back" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <h2 style={{'text-align': 'center', marginBottom: '0.5rem' }}>{name}</h2>
+          <img src={image} alt={name} className="back-image" />
+        </div>
           </Card>
         ))}
     </div>

@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
-export default function Login({ handleSubmit }) {
+export default function Login({ handleSubmit, user }) {
     return (
 <>
 <section class="title-wrapper">
   <div class="top-title"></div>
-  <div class="bottom-title" aria-hidden="true">New Site</div>
+  <div class="bottom-title" aria-hidden="true">Knicks & Clicks</div>
   <em style={{ color: 'white',}} className="sub-title">A diehard fan's blog to vent about the last 20 years of NY Basketball</em>
 </section>
  <div class="container">
@@ -32,7 +32,7 @@ export default function Login({ handleSubmit }) {
             </div>
             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button></div>
             <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-              Registered? <a href="#" class="text-dark fw-bold"> Create an
+              Registered? <a href="signin" class="text-dark fw-bold"> Create an
                 Account</a>
             </div>
           </form>

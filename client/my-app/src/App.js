@@ -6,6 +6,8 @@ import CommentList from './components/CommentList';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from './components/Login';
 import Highlights from './components/Highlights';
+import { useFormik } from 'formik';
+import SignupForm from './components/Signup';
 
 
 function App() {
@@ -39,6 +41,23 @@ function App() {
         setUsers(users);
       });
   }, []);
+
+  const formik = useFormik({
+    initialValues: {
+        email: "",
+        password: "",
+    },
+    onSubmit: (values) => {
+        fetch('/user_info', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values, null, 2)
+        })
+        .then(() => navigate('/user'))
+    }
+})
 
 
   useEffect(() => {
@@ -105,11 +124,17 @@ function App() {
         <Route element={
           <Login
           handleSubmit={handleLoginSubmit}
+          user={user}
           />} path="/login"/> 
 
         <Route element={
           <Highlights />
         } path="/highlights"/>
+
+        <Route element={
+          <SignupForm
+            formik={formik}
+            />} path="/signin"/>
 
       </Routes>
     </div>

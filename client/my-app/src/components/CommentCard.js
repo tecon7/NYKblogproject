@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import CommentForm from './CommentForm';
 
 
@@ -32,7 +32,6 @@ function CommentCard({comment, replies, user, deleteComment, setComments, active
   }
 
   function updateComment(text, id) {
-    // Update local state first
     setComments(prevVal => prevVal.map(comment => {
       if (comment.id === id) {
         return {...comment, body: text};
@@ -40,8 +39,6 @@ function CommentCard({comment, replies, user, deleteComment, setComments, active
         return comment;
       }
     }));
-    
-    // Send PATCH request to the server
     fetch(`/comments/${id}`, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
@@ -49,7 +46,6 @@ function CommentCard({comment, replies, user, deleteComment, setComments, active
     })
     .then(resp => resp.json())
     .then(updatedComment => {
-      // Update local state with data received from server
       setComments(prevVal => prevVal.map(comment => {
         if (comment.id === updatedComment.id) {
           return updatedComment;
@@ -64,8 +60,11 @@ function CommentCard({comment, replies, user, deleteComment, setComments, active
     return (
        <div className='comment'>
         <div className='comment-image-container'>
-        <img className='author-image' src={comment.userId === user.id ? user.image_url : users.find(u => u.id === comment.userId).image_url} alt="User icon" />
-        </div> 
+  <img className='author-image' 
+    src={comment.userId === user.id ? user.image_url : (Array.isArray(users) && users.length > 0 ? users.find(u => u.id === comment.userId).image_url : 'default_image_url')} 
+    alt="User icon" 
+  />
+</div> 
         <div className='comment-right-part'>
             <div className='comment-content'>
                 <div className='comment-author'>{ comment.userId === user.id ? user.username : comment.username }</div>

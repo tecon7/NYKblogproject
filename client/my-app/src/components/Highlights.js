@@ -9,6 +9,11 @@ function Highlights () {
 
     return (
         <>
+        <section class="title-wrapper">
+          <div class="top-title"></div>
+          <div class="bottom-title" aria-hidden="true">Knicks & Clicks</div>
+          <em style={{ color: 'white',}} className="sub-title">Regular Season Highlights</em>
+        </section>
         <div className="carousel-wrapper">
         <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
       <Carousel.Item>
